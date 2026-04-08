@@ -71,9 +71,9 @@ BLOCK DIAGRAM
 
 
 FLOW CHART
-<img width="512" height="464" alt="image" src="https://github.com/user-attachments/assets/46e61e23-af3f-4c90-8fd3-8eb320727eab" />
+<img width="412" height="364" alt="image" src="https://github.com/user-attachments/assets/46e61e23-af3f-4c90-8fd3-8eb320727eab" />
 
-<img width="512" height="417" alt="image" src="https://github.com/user-attachments/assets/3d7097b5-d241-4649-80ac-1772f90ceaf8" />
+<img width="412" height="317" alt="image" src="https://github.com/user-attachments/assets/3d7097b5-d241-4649-80ac-1772f90ceaf8" />
 
 CIRCUIT DIAGRAM
 
@@ -116,7 +116,9 @@ TECHNOLOGY USED
   AUTHOR
 
   Brijit Shite
+  
   B.Tech Electronics & Communication Engineering
+  
   Model engineering college
 
 
