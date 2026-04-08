@@ -1,8 +1,5 @@
 DRISHTI – Smart Glasses for the Visually Impaired
 
-A smart wearable system designed to enhance navigation, safety, and independence for visually impaired individuals.
-
-DESCRIPTION
 
 ![WhatsApp Image 2026-04-01 at 01 36 36](https://github.com/user-attachments/assets/97b16b21-c6f2-4248-a17f-9af881f56333)
 
