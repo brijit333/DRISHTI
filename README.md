@@ -9,7 +9,7 @@ KEY FEATURES
 
 - Real-time obstacle detection
 - GPS-based navigation system
-- Voice guidance (Left / Right / Straight)
+- Voice guidance 
 - Dual ESP32 architecture for better performance
 - Emergency SOS alert system
 - Easy destination selection using buttons
@@ -69,7 +69,7 @@ FLOW CHART
 
 <img width="412" height="364" alt="image" src="https://github.com/user-attachments/assets/46e61e23-af3f-4c90-8fd3-8eb320727eab" />
 
-<img width="412" height="317" alt="image" src="https://github.com/user-attachments/assets/3d7097b5-d241-4649-80ac-1772f90ceaf8" />
+<img width="412" height="364" alt="image" src="https://github.com/user-attachments/assets/3d7097b5-d241-4649-80ac-1772f90ceaf8" />
 
 CIRCUIT DIAGRAM
 
