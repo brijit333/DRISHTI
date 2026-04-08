@@ -1,0 +1,45 @@
+//esp8266 used
+
+#define TRIG_PIN D5
+#define ECHO_PIN D6
+#define BUZZER  D2
+
+long duration;
+float distance;
+
+void setup() {
+  pinMode(TRIG_PIN, OUTPUT);
+  pinMode(ECHO_PIN, INPUT);
+  pinMode(BUZZER, OUTPUT);
+
+  Serial.begin(115200);
+}
+
+void loop() {
+
+  // Trigger pulse
+  digitalWrite(TRIG_PIN, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(TRIG_PIN, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(TRIG_PIN, LOW);
+
+  // Read echo
+  duration = pulseIn(ECHO_PIN, HIGH);
+
+  // Calculate distance
+  distance = duration * 0.034 / 2;
+
+  Serial.print("Distance: ");
+  Serial.println(distance);
+
+  // Buzzer logic
+  if (distance > 0 && distance < 80) {
+    digitalWrite(BUZZER, HIGH);
+  } else {
+    digitalWrite(BUZZER, LOW);
+  }
+
+  delay(200);
+}
