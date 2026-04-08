@@ -47,7 +47,7 @@ unsigned long lastPlay = 0;
 void setup() {
   Serial.begin(115200);
 
-  pinMode(SOS_BTN, INPUT_PULLUP); // ✅ NEW
+  pinMode(SOS_BTN, INPUT_PULLUP); 
 
   pinMode(B1, INPUT_PULLUP);
   pinMode(B2, INPUT_PULLUP);
@@ -64,7 +64,7 @@ void setup() {
 
   player.volume(30);
 
-  // ✅ Blynk start
+  //  Blynk start
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
 
   Serial.println("SYSTEM READY");
@@ -88,14 +88,14 @@ void loop() {
       float lat = gps.location.lat();
       float lon = gps.location.lng();
 
-      String message = "🚨 BLIND USER NEEDS HELP!\n";
+      String message = " BLIND USER NEEDS HELP!\n";
       message += "Live Location:\n";
       message += "https://maps.google.com/?q=";
       message += String(lat, 6) + "," + String(lon, 6);
 
       Blynk.logEvent("alert", message);
 
-      Serial.println("🚨 EMERGENCY SENT");
+      Serial.println("EMERGENCY SENT");
       Serial.println(message);
 
       sent = true;
