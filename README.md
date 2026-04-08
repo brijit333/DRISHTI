@@ -114,7 +114,7 @@ TECHNOLOGY USED
   
   Brijit Shite
   
-  B.Tech Electronics & Communication Engineering
+  B.Tech Electronics & Communication Engineering,
   Model engineering college
 
 
