@@ -1,0 +1,264 @@
+//esp32 wroom used
+
+#define BLYNK_TEMPLATE_ID "TMPL3i24nMmSF"
+#define BLYNK_TEMPLATE_NAME "BLIND"
+#define BLYNK_AUTH_TOKEN "MFBPZJl5JqH1tWZbMJ5kFFs6bFKbUhtB"
+
+#include <WiFi.h>
+#include <BlynkSimpleEsp32.h>
+#include <TinyGPS++.h>
+#include <HardwareSerial.h>
+#include <DFRobotDFPlayerMini.h>
+
+// WiFi
+char ssid[] = "Bri";
+char pass[] = "brijit212";
+
+// EMERGENCY BUTTON  
+#define SOS_BTN 23
+
+// Buttons (UNCHANGED)
+#define B1 4
+#define B2 5
+#define B3 18
+#define B4 19
+
+TinyGPSPlus gps;
+
+HardwareSerial gpsSerial(1);
+HardwareSerial dfSerial(2);
+
+DFRobotDFPlayerMini player;
+
+// Blynk control
+bool sent = false;
+
+// Button memory
+bool prevB1 = HIGH, prevB2 = HIGH, prevB3 = HIGH, prevB4 = HIGH;
+
+// Navigation variables
+double destLat = -1, destLon = -1;
+bool selected = false;
+String destName = "NONE";
+
+unsigned long lastPlay = 0;
+
+// ================= SETUP =================
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(SOS_BTN, INPUT_PULLUP); // ✅ NEW
+
+  pinMode(B1, INPUT_PULLUP);
+  pinMode(B2, INPUT_PULLUP);
+  pinMode(B3, INPUT_PULLUP);
+  pinMode(B4, INPUT_PULLUP);
+
+  gpsSerial.begin(9600, SERIAL_8N1, 34, 12);
+  dfSerial.begin(9600, SERIAL_8N1, 16, 17);
+
+  if (!player.begin(dfSerial)) {
+    Serial.println("DFPlayer ERROR");
+    while (1);
+  }
+
+  player.volume(30);
+
+  // ✅ Blynk start
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+
+  Serial.println("SYSTEM READY");
+}
+
+// ================= LOOP =================
+void loop() {
+
+  Blynk.run();
+
+  // Read GPS
+  while (gpsSerial.available()) {
+    gps.encode(gpsSerial.read());
+  }
+
+  // ================= 🚨 SOS =================
+  if (digitalRead(SOS_BTN) == LOW && !sent) {
+
+    if (gps.location.isValid()) {
+
+      float lat = gps.location.lat();
+      float lon = gps.location.lng();
+
+      String message = "🚨 BLIND USER NEEDS HELP!\n";
+      message += "Live Location:\n";
+      message += "https://maps.google.com/?q=";
+      message += String(lat, 6) + "," + String(lon, 6);
+
+      Blynk.logEvent("alert", message);
+
+      Serial.println("🚨 EMERGENCY SENT");
+      Serial.println(message);
+
+      sent = true;
+    }
+    else {
+      Serial.println("GPS not locked yet");
+    }
+  }
+
+  if (digitalRead(SOS_BTN) == HIGH) {
+    sent = false;
+  }
+
+  // ================= BUTTONS =================
+  bool currB1 = digitalRead(B1);
+  bool currB2 = digitalRead(B2);
+  bool currB3 = digitalRead(B3);
+  bool currB4 = digitalRead(B4);
+
+  if (prevB1 == HIGH && currB1 == LOW) {
+    delay(50);
+    if (digitalRead(B1) == LOW)
+      setDestination(10.028807, 76.329527, "ATM");
+  }
+
+  if (prevB2 == HIGH && currB2 == LOW) {
+    delay(50);
+    if (digitalRead(B2) == LOW)
+      setDestination(10.027658, 76.329224, "CANTEEN");
+  }
+
+  if (prevB3 == HIGH && currB3 == LOW) {
+    delay(50);
+    if (digitalRead(B3) == LOW)
+      setDestination(10.028514, 76.328418, "CCF LAB");
+  }
+
+  if (prevB4 == HIGH && currB4 == LOW) {
+    delay(50);
+    if (digitalRead(B4) == LOW)
+      setDestination(10.028081, 76.328235, "NEW BLOCK");
+  }
+
+  prevB1 = currB1;
+  prevB2 = currB2;
+  prevB3 = currB3;
+  prevB4 = currB4;
+
+  // Navigation
+  if (selected && millis() - lastPlay > 4000) {
+    navigate();
+    lastPlay = millis();
+  }
+}
+
+// ================= DESTINATION =================
+void setDestination(double lat, double lon, String name) {
+  destLat = lat;
+  destLon = lon;
+  destName = name;
+  selected = true;
+
+  Serial.println("------------");
+  Serial.print("Selected Location: ");
+  Serial.println(destName);
+
+  Serial.print("Destination Latitude: ");
+  Serial.println(destLat, 6);
+
+  Serial.print("Destination Longitude: ");
+  Serial.println(destLon, 6);
+}
+
+// ================= NAVIGATION =================
+void navigate() {
+
+  if (!selected || destLat == -1 || destName == "NONE") {
+    Serial.println("No destination selected");
+    return;
+  }
+
+  if (!gps.location.isValid() || gps.satellites.value() < 4) {
+    Serial.println("Waiting for GPS...");
+    return;
+  }
+
+  double lat = gps.location.lat();
+  double lon = gps.location.lng();
+
+  Serial.println("------------");
+
+  Serial.print("Current Destination: ");
+  Serial.println(destName);
+
+  Serial.print("Current Latitude: ");
+  Serial.println(lat, 6);
+
+  Serial.print("Current Longitude: ");
+  Serial.println(lon, 6);
+
+  double latDiff = abs(destLat - lat);
+  double lonDiff = abs(destLon - lon);
+
+  Serial.print("Latitude Difference: ");
+  Serial.println(latDiff, 6);
+
+  Serial.print("Longitude Difference: ");
+  Serial.println(lonDiff, 6);
+
+  if (latDiff < 0.000119 && lonDiff < 0.000119) {
+    Serial.println("DESTINATION REACHED");
+    player.play(2);
+
+    selected = false;
+    destLat = -1;
+    destLon = -1;
+    destName = "NONE";
+    return;
+  }
+
+  double distance = TinyGPSPlus::distanceBetween(lat, lon, destLat, destLon);
+
+  Serial.print("Distance (m): ");
+  Serial.println(distance);
+
+  if (distance < 10) {
+    Serial.println("DESTINATION REACHED (DISTANCE)");
+    player.play(2);
+
+    selected = false;
+    destLat = -1;
+    destLon = -1;
+    destName = "NONE";
+    return;
+  }
+
+  if (!gps.course.isValid()) {
+    Serial.println("Move to get direction...");
+    return;
+  }
+
+  double course = gps.course.deg();
+  double bearing = TinyGPSPlus::courseTo(lat, lon, destLat, destLon);
+
+  double diff = bearing - course;
+
+  if (diff > 180) diff -= 360;
+  if (diff < -180) diff += 360;
+
+  Serial.print("Course: "); Serial.println(course);
+  Serial.print("Bearing: "); Serial.println(bearing);
+  Serial.print("Direction Diff: "); Serial.println(diff);
+
+  if (abs(diff) < 15) {
+    Serial.println("GO STRAIGHT");
+    player.play(3);
+  }
+  else if (diff > 0) {
+    Serial.println("TURN RIGHT");
+    player.play(1);
+  }
+  else {
+    Serial.println("TURN LEFT");
+    player.play(4);
+  }
+}
