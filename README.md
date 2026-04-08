@@ -103,6 +103,7 @@ TECHNOLOGY USED
 - Indoor navigation system
 
 
+
   DEMO VIDEO
   
   https://drive.google.com/file/d/1o9CXdtoK8ZXkNWSgqVOfLhswVpKzXm1l/view?usp=drivesdk
@@ -110,11 +111,9 @@ TECHNOLOGY USED
 
 
   AUTHOR
-
   Brijit Shite
   
   B.Tech Electronics & Communication Engineering
-  
   Model engineering college
 
 
