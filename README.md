@@ -6,14 +6,9 @@ DESCRIPTION
 
 ![WhatsApp Image 2026-04-01 at 01 36 36](https://github.com/user-attachments/assets/97b16b21-c6f2-4248-a17f-9af881f56333)
 
-<img width="2268" height="4032" alt="image" src="https://github.com/user-attachments/assets/bf9084fb-6079-4e6b-a82c-c4b5bb5ed4b3" />
+DRISHTI is an intelligent smart eyewear system designed to empower visually impaired individuals by enhancing their safety, confidence, and independence in everyday navigation. It seamlessly integrates real-time obstacle detection with GPS-based directional guidance, acting as a reliable digital companion that “sees” and “guides” on behalf of the user. Built on a dual ESP32 architecture, one module continuously monitors the surroundings to detect obstacles and provide instant alerts, while the other processes location data and delivers clear voice instructions such as “Go Straight,” “Turn Left,” or “Turn Right.” This combination ensures both immediate safety and accurate navigation. As the user approaches the selected destination, the system intelligently recognizes it and announces “Destination Reached,” providing a complete navigation experience. In addition, DRISHTI includes an emergency SOS feature that can transmit the user’s live location to caregivers, adding an extra layer of security. Compact, efficient, and user-friendly, the system is designed not just as a technological solution, but as a meaningful step toward enabling independent mobility and improving the quality of life for visually impaired individuals.
 
-
-
-
-DRISHTI is an intelligent assistive eyewear system that uses dual ESP32 microcontrollers to perform real-time obstacle detection and GPS-based navigation simultaneously. It provides instant audio alerts and navigation guidance, ensuring safer mobility.
-
- KEY FEATURES
+KEY FEATURES
 
 - Real-time obstacle detection
 - GPS-based navigation system
@@ -62,6 +57,7 @@ Working Principle
 5. Voice instructions guide the user
 6. SOS button sends live location in emergency
 
+
 BLOCK DIAGRAM
 
 <img width="412" height="376" alt="image" src="https://github.com/user-attachments/assets/6e779e3a-e2b1-4b18-a79e-eead327ef08b" />
@@ -71,6 +67,9 @@ BLOCK DIAGRAM
 
 
 FLOW CHART
+
+
+
 <img width="412" height="364" alt="image" src="https://github.com/user-attachments/assets/46e61e23-af3f-4c90-8fd3-8eb320727eab" />
 
 <img width="412" height="317" alt="image" src="https://github.com/user-attachments/assets/3d7097b5-d241-4649-80ac-1772f90ceaf8" />
