@@ -1,0 +1,80 @@
+#define BLYNK_TEMPLATE_ID "TMPL3i24nMmSF"
+#define BLYNK_TEMPLATE_NAME "BLIND"
+#define BLYNK_AUTH_TOKEN "MFBPZJl5JqH1tWZbMJ5kFFs6bFKbUhtB"
+
+#include <WiFi.h>
+#include <BlynkSimpleEsp32.h>
+#include <TinyGPS++.h>
+#include <HardwareSerial.h>
+
+// WiFi
+char ssid[] = "Bri";
+char pass[] = "brijit212";
+
+// Button
+#define BUTTON_PIN 4
+
+// GPS
+TinyGPSPlus gps;
+HardwareSerial gpsSerial(1);
+
+// prevent multiple alerts
+bool sent = false;
+
+void setup() {
+
+  Serial.begin(115200);
+
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+  // GPS serial
+  gpsSerial.begin(9600, SERIAL_8N1, 16, 17); 
+  // RX = 16
+  // TX = 17
+
+  Serial.println("GPS Started...");
+
+  // Blynk
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+
+  Serial.println("System Ready");
+}
+
+void loop() {
+
+  Blynk.run();
+
+  // Read GPS data
+  while (gpsSerial.available()) {
+    gps.encode(gpsSerial.read());
+  }
+
+  // Button pressed
+  if (digitalRead(BUTTON_PIN) == LOW && !sent) {
+
+    if (gps.location.isValid()) {
+
+      float lat = gps.location.lat();
+      float lon = gps.location.lng();
+
+      String message = "🚨 BLIND USER NEEDS HELP!\n";
+      message += "Live Location:\n";
+      message += "https://maps.google.com/?q=";
+      message += String(lat, 6) + "," + String(lon, 6);
+
+      Blynk.logEvent("alert", message);
+
+      Serial.println(message);
+
+      sent = true;
+    }
+    else {
+      Serial.println("GPS not locked yet");
+    }
+  }
+
+  // Reset when button released
+  if (digitalRead(BUTTON_PIN) == HIGH) {
+    sent = false;
+  }
+}
