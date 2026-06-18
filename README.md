@@ -67,6 +67,7 @@ System Architecture
 
 
 The project uses two microcontrollers for efficient operation.
+
 <img width="512" height="476" alt="flow chart" src="https://github.com/user-attachments/assets/cad67477-4088-42cd-97af-201e54a934db" />
 
 
@@ -155,7 +156,7 @@ If the SOS button is pressed:
 - Caregivers can quickly locate the user.
 
 Hardware Implementation
-<img width="800" height="4000" alt="WhatsApp Image 2026-06-18 at 20 10 05" src="https://github.com/user-attachments/assets/6cd6a672-4624-45f6-885d-6cb9d50da8a2" />
+<img width="800" height="1000" alt="WhatsApp Image 2026-06-18 at 20 10 05" src="https://github.com/user-attachments/assets/6cd6a672-4624-45f6-885d-6cb9d50da8a2" />
 
 
 The electronic components are integrated into a spectacle frame to create a compact wearable device.
