@@ -2,7 +2,7 @@
 
 #define BLYNK_TEMPLATE_ID "TMPL3i24nMmSF"
 #define BLYNK_TEMPLATE_NAME "BLIND"
-#define BLYNK_AUTH_TOKEN "MFBPZJl5JqH1tWZbMJ5kFFs6bFKbUhtB"
+#define BLYNK_AUTH_TOKEN "blynk token"
 
 #include <WiFi.h>
 #include <BlynkSimpleEsp32.h>
@@ -11,8 +11,8 @@
 #include <DFRobotDFPlayerMini.h>
 
 // WiFi
-char ssid[] = "Bri";
-char pass[] = "brijit212";
+char ssid[] = "wifi_name";
+char pass[] = "password";
 
 // EMERGENCY BUTTON  
 #define SOS_BTN 23
