@@ -1,4 +1,6 @@
-DRISHTI
+                                                                DRISHTI
+
+
 <img width="4160" height="2893" alt="bri smart spects" src="https://github.com/user-attachments/assets/c5d94df0-c015-4d02-9153-b8f7861c9172" />
 
 What If a Pair of Spectacles Could Guide a Visually Impaired Person?
@@ -156,6 +158,7 @@ If the SOS button is pressed:
 - Caregivers can quickly locate the user.
 
 Hardware Implementation
+
 <img width="800" height="900" alt="WhatsApp Image 2026-06-18 at 20 10 05" src="https://github.com/user-attachments/assets/6cd6a672-4624-45f6-885d-6cb9d50da8a2" />
 
 
@@ -168,6 +171,7 @@ The ultrasonic sensor is positioned to detect obstacles in front of the user, wh
 
 
  GPS Navigation and Emergency Alert Circuit Diagram
+ 
 <img width="900" height="400" alt="circuit" src="https://github.com/user-attachments/assets/8546f96f-23a2-4b7a-b69a-695291d28574" />
 
 
@@ -182,7 +186,8 @@ The ESP32 was selected for this subsystem because it provides sufficient process
 
 Obstacle Detection Circuit Diagram
 
-<img width="900" height="350" alt="circuit" src="https://github.com/user-attachments/assets/25ac5f40-58a2-448a-940c-be418d8bd7e5" />
+ <img width="900" height="400" alt="circuit diagram" src="https://github.com/user-attachments/assets/ed43f120-36eb-44d8-aae3-0648badfa7da" />
+
 
 
 This circuit is built around the ESP8266 NodeMCU microcontroller and an HC-SR04 ultrasonic sensor. The ultrasonic sensor continuously measures the distance between the user and nearby obstacles by transmitting and receiving ultrasonic waves.
