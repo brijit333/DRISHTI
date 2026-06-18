@@ -155,7 +155,7 @@ If the SOS button is pressed:
 - Caregivers can quickly locate the user.
 
 Hardware Implementation
-<img width="1600" height="1422" alt="WhatsApp Image 2026-06-18 at 20 10 05" src="https://github.com/user-attachments/assets/6cd6a672-4624-45f6-885d-6cb9d50da8a2" />
+<img width="800" height="4000" alt="WhatsApp Image 2026-06-18 at 20 10 05" src="https://github.com/user-attachments/assets/6cd6a672-4624-45f6-885d-6cb9d50da8a2" />
 
 
 The electronic components are integrated into a spectacle frame to create a compact wearable device.
@@ -167,7 +167,7 @@ The ultrasonic sensor is positioned to detect obstacles in front of the user, wh
 
 
  GPS Navigation and Emergency Alert Circuit Diagram
-<img width="885" height="852" alt="circuit" src="https://github.com/user-attachments/assets/8546f96f-23a2-4b7a-b69a-695291d28574" />
+<img width="1000" height="400" alt="circuit" src="https://github.com/user-attachments/assets/8546f96f-23a2-4b7a-b69a-695291d28574" />
 
 
 
@@ -193,8 +193,8 @@ A dedicated ESP8266 controller was used for obstacle detection to reduce the pro
 The obstacle detection subsystem operates continuously and independently, providing an additional layer of safety for visually impaired users while navigating.
 
 Testing and Results
-<img width="720" height="1280" alt="smart specs" src="https://github.com/user-attachments/assets/1e012eb9-2c5a-4b8d-be23-7c4325244b12" />
-<img width="540" height="1200" alt="WhatsApp Image 2026-06-18 at 16 14 10" src="https://github.com/user-attachments/assets/a3eb65cd-3190-456e-b331-78d2c381e693" />
+<img width="470" height="770" alt="smart specs" src="https://github.com/user-attachments/assets/1e012eb9-2c5a-4b8d-be23-7c4325244b12" />
+<img width="490" height="800" alt="WhatsApp Image 2026-06-18 at 16 14 10" src="https://github.com/user-attachments/assets/a3eb65cd-3190-456e-b331-78d2c381e693" />
 
 
 The prototype was tested in a college campus environment.
