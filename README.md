@@ -1,4 +1,4 @@
-                                                                DRISHTI
+                                                            DRISHTI
 
 
 <img width="4160" height="2893" alt="bri smart spects" src="https://github.com/user-attachments/assets/c5d94df0-c015-4d02-9153-b8f7861c9172" />
