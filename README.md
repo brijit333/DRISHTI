@@ -168,9 +168,8 @@ The ultrasonic sensor is positioned to detect obstacles in front of the user, wh
 
 
 
-
-
  GPS Navigation and Emergency Alert Circuit Diagram
+ 
  
 <img width="900" height="400" alt="circuit" src="https://github.com/user-attachments/assets/8546f96f-23a2-4b7a-b69a-695291d28574" />
 
@@ -193,13 +192,14 @@ Obstacle Detection Circuit Diagram
 This circuit is built around the ESP8266 NodeMCU microcontroller and an HC-SR04 ultrasonic sensor. The ultrasonic sensor continuously measures the distance between the user and nearby obstacles by transmitting and receiving ultrasonic waves.
 
 When an obstacle is detected within approximately 80 cm, the ESP8266 activates a buzzer to alert the user. This immediate warning helps prevent collisions with walls, furniture, and other objects during navigation.
-
 A dedicated ESP8266 controller was used for obstacle detection to reduce the processing load on the ESP32 navigation system and ensure reliable real-time operation of both functions simultaneously.
-
 The obstacle detection subsystem operates continuously and independently, providing an additional layer of safety for visually impaired users while navigating.
 
 Testing and Results
+
+
 <img width="470" height="770" alt="smart specs" src="https://github.com/user-attachments/assets/1e012eb9-2c5a-4b8d-be23-7c4325244b12" />
+
 <img width="490" height="800" alt="WhatsApp Image 2026-06-18 at 16 14 10" src="https://github.com/user-attachments/assets/a3eb65cd-3190-456e-b331-78d2c381e693" />
 
 
@@ -227,7 +227,6 @@ Applications
 Future Enhancements
 
 Future improvements may include:
-
 - Voice command-based destination selection.
 - AI-powered object recognition.
 - Camera-assisted navigation.
@@ -238,5 +237,4 @@ Future improvements may include:
 Conclusion
 
 Smart Spectacles That Enable Safe Navigation and Emergency Assistance for Visually Impaired Users is a wearable assistive technology solution designed to improve mobility and independence. By integrating GPS navigation, obstacle detection, voice guidance, and emergency assistance, the system helps visually impaired individuals navigate educational institutions, workplaces, and public environments with greater confidence and safety.
-
- This project demonstrates how embedded systems and IoT technologies can be used to create meaningful solutions that improve accessibility and quality of life.
+This project demonstrates how embedded systems and IoT technologies can be used to create meaningful solutions that improve accessibility and quality of life.
