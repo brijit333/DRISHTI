@@ -181,7 +181,7 @@ The ESP32 was selected for this subsystem because it provides sufficient process
 
 Obstacle Detection Circuit Diagram
 
-<img width="885" height="852" alt="circuit" src="https://github.com/user-attachments/assets/25ac5f40-58a2-448a-940c-be418d8bd7e5" />
+<img width="300" height="200" alt="circuit" src="https://github.com/user-attachments/assets/25ac5f40-58a2-448a-940c-be418d8bd7e5" />
 
 
 This circuit is built around the ESP8266 NodeMCU microcontroller and an HC-SR04 ultrasonic sensor. The ultrasonic sensor continuously measures the distance between the user and nearby obstacles by transmitting and receiving ultrasonic waves.
@@ -193,6 +193,9 @@ A dedicated ESP8266 controller was used for obstacle detection to reduce the pro
 The obstacle detection subsystem operates continuously and independently, providing an additional layer of safety for visually impaired users while navigating.
 
 Testing and Results
+<img width="720" height="1280" alt="smart specs" src="https://github.com/user-attachments/assets/1e012eb9-2c5a-4b8d-be23-7c4325244b12" />
+<img width="540" height="1200" alt="WhatsApp Image 2026-06-18 at 16 14 10" src="https://github.com/user-attachments/assets/a3eb65cd-3190-456e-b331-78d2c381e693" />
+
 
 The prototype was tested in a college campus environment.
 
@@ -205,11 +208,6 @@ Observations:
 - SOS location sharing worked successfully.
 
 The system demonstrated stable performance during continuous operation.
-
-
-
-
-
 
 
 Applications
